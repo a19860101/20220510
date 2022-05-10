@@ -10,7 +10,6 @@
     <h1>POST INDEX</h1>
     <a href="/post/create">create</a>
     <a href="{{route('post.create')}}">create</a>
-
     <?php
         $id = 88;
     ?>
