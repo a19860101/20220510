@@ -38,13 +38,22 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        DB::insert('INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,?,?)',[
-            $request->title,
-            $request->content,
-            now(),
-            now()
+        // DB::insert('INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,?,?)',[
+        //     $request->title,
+        //     $request->content,
+        //     now(),
+        //     now()
+        // ]);
+
+        //query builder
+        DB::table('posts')->insert([
+            'title' => $request->title,
+            'content'=>$request->content,
+            'created_at'=>now(),
+            'updated_at'=>now()
         ]);
 
+        return redirect()->route('post.index');
     }
 
     /**
