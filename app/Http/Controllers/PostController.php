@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class PostController extends Controller
 {
@@ -37,6 +38,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        DB::insert('INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,?,?)',[
+            $request->title,
+            $request->content,
+            now(),
+            now()
+        ]);
+
     }
 
     /**

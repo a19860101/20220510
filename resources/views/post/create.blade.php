@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="" method="post">
+            <form action="{{route('post.store')}}" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">標題</label>
