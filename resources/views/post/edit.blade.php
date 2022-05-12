@@ -3,7 +3,8 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="" method="post">
+            {{-- <form action="/post/{{$post->id}}" method="post"> --}}
+            <form action="{{route('post.update',['post'=>$post->id])}}" method="post">
                 @csrf
                 @method('patch')
                 <div class="mb-3">
