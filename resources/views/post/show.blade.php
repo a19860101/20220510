@@ -10,6 +10,10 @@
             <div>
                 {{$post->updated_at}}
             </div>
+
+            <a href="/post/{{$post->id}}/edit" class="btn btn-success">編輯文章</a>
+            <a href="{{route('post.edit',['post'=>$post->id])}}" class="btn btn-success">編輯文章</a>
+
             {{-- <form action="/post/{{$post->id}}" method="post"> --}}
             <form action="{{route('post.destroy',['post'=>$post->id])}}" method="post">
                 @csrf
