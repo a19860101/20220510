@@ -70,7 +70,13 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        return view('post.show',['id'=>$id]);
+        // $post = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
+
+        // $post = DB::table('posts')->where('id',$id)->first();
+        $post = DB::table('posts')->find($id);
+
+        dd( $post );
+        return view('post.show');
     }
 
     /**

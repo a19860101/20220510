@@ -9,6 +9,9 @@
             <div>
                 {{$post->content}}
             </div>
+            <a href="/post/{{$post->id}}">繼續閱讀</a>
+            <a href="{{route('post.show',['post' => $post->id])}}">繼續閱讀</a>
+            <hr>
         </div>
         @endforeach
     </div>
