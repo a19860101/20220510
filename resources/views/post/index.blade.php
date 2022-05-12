@@ -2,7 +2,6 @@
 @section('main')
 <div class="container">
     <div class="row">
-
         @foreach($posts as $post)
         <div class="col-10">
             <h2>{{$post->title}}</h2>
