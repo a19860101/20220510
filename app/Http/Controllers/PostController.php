@@ -14,8 +14,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        return view('post.index');
+        //raw sql
+        // $posts = DB::select('SELECT * FROM posts ORDER BY id DESC');
+
+        // query builder
+        $posts = DB::table('posts')->orderBy('id','DESC')->get();
+        // dd($posts);
+        return view('post.index',['posts' => $posts]);
     }
 
     /**
