@@ -16,6 +16,8 @@ class ProductController extends Controller
     {
         //
         $products = Product::orderBy('id','DESC')->get();
+        // $products = Product::withTrashed()->orderBy('id','DESC')->get();
+        // $products = Product::onlyTrashed()->orderBy('id','DESC')->get();
         // $products = Product::all();
 
         return view('product.index',compact('products'));
