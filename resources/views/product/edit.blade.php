@@ -3,8 +3,9 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="{{route('product.store')}}" method="post">
+            <form action="{{route('product.update',[$product->id])}}" method="post">
                 @csrf
+                @method('patch')
                 <div>
                     <label for="" class="form-label">商品名稱</label>
                     <input type="text" class="form-control" name="title" value="{{$product->title}}">
@@ -29,7 +30,7 @@
                     <label for="" class="form-label">下架</label>
                     <input type="date" class="form-control" name="ended_at" value="{{$product->ended_at}}">
                 </div>
-                <input type="submit" value="新增商品" class="btn btn-primary">
+                <input type="submit" value="儲存商品" class="btn btn-primary">
             </form>
         </div>
     </div>
