@@ -38,6 +38,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        // Product::create($request->all());
+
+        $product = new Product;
+        $product->fill($request->all());
+        $product->save();
+
+        return redirect()->route('product.index');
+
     }
 
     /**
