@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::resource('post',PostController::class);
+Route::resource('product',ProductController::class);
 
 Route::get('test/{id}/{test}',[PostController::class,'test']);
