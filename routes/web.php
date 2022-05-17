@@ -22,3 +22,5 @@ Route::resource('post',PostController::class);
 Route::resource('product',ProductController::class);
 
 Route::get('test/{id}/{test}',[PostController::class,'test']);
+
+// Route::get('product/{id}/{item}',[ProductController::class,'item']);

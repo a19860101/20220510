@@ -20,6 +20,9 @@
                     <td>{{$product->sale}}</td>
                     <td>{{$product->started_at}}</td>
                     <td>{{$product->ended_at}}</td>
+                    <td>
+                        <a href="{{route('product.show',['product' => $product->id])}}">詳細資料</a>
+                    </td>
                 </tr>
                 @endforeach
             </table>
