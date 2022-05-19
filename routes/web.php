@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::resource('product',ProductController::class);
 Route::get('test/{id}/{test}',[PostController::class,'test']);
 
 // Route::get('product/{id}/{item}',[ProductController::class,'item']);
+
+Route::get('category',[CategoryController::class,'index'])->name('category.index');
+Route::post('category',[CategoryController::class,'store'])->name('category.store');
