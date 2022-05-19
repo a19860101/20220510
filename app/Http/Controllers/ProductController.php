@@ -49,9 +49,13 @@ class ProductController extends Controller
         // return $request->file('cover')->store('images');
         // return $request->file('cover')->storeAs('images','asdf');
 
-        $ext = $request->file('cover')->getClientOriginalExtension();
-        $cover = Str::uuid().'.'.$ext;
-        return $request->file('cover')->storeAs('images',$cover,'public');
+        if($request->file('cover')){
+            $ext = $request->file('cover')->getClientOriginalExtension();
+            $cover = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$cover,'public');
+        }else{
+            $cover = null;
+        }
 
         $product = new Product;
         // $product->title = $request->title;
@@ -59,6 +63,7 @@ class ProductController extends Controller
         //     'title' => $request->title,
         // ]);
         $product->fill($request->all());
+        $product->cover = $cover;
         $product->save();
 
         return redirect()->route('product.index');
