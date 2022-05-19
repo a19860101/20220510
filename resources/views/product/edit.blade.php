@@ -11,6 +11,21 @@
                     <input type="text" class="form-control" name="title" value="{{$product->title}}">
                 </div>
                 <div>
+                    {{-- {{$category->id == $product->category_id ? 'selected': '';}} --}}
+                    <label for="" class="form-label">商品分類</label>
+                    <select name="category_id" id="" class="form-select">
+                        @foreach($categories as $category)
+                        <option value="{{$category->id}}"
+                            @if($category->id == $product->category_id)
+                            {{'selected'}}
+                            @endif
+                            >
+                            {{$category->title}}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
                     <label for="" class="form-label">商品敘述</label>
                     <textarea name="desc" id="" cols="30" rows="10" class="form-control">{{$product->desc}}</textarea>
                 </div>
