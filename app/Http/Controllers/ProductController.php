@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Str;
 
@@ -32,7 +33,9 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('product.create');
+        $categories = Category::get();
+
+        return view('product.create',compact('categories'));
     }
 
     /**
