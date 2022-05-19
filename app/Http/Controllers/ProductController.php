@@ -45,6 +45,9 @@ class ProductController extends Controller
         //
         // Product::create($request->all());
 
+        return $request->file('cover')->store('images');
+        return $request->file('cover')->storeAs('images','asdf');
+
         $product = new Product;
         $product->fill($request->all());
         $product->save();

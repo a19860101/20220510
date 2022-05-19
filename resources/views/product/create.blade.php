@@ -3,11 +3,15 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="{{route('product.store')}}" method="post">
+            <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="" class="form-label">商品名稱</label>
                     <input type="text" class="form-control" name="title">
+                </div>
+                <div>
+                    <label for="">商品封面</label>
+                    <input type="file" name="cover" class="form-control">
                 </div>
                 <div>
                     <label for="" class="form-label">商品敘述</label>
