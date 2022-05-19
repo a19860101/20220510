@@ -34,8 +34,13 @@ class ProductController extends Controller
     {
         //
         $categories = Category::get();
+        $data = ['test'];
 
-        return view('product.create',compact('categories'));
+        return view('product.create',compact('categories','data'));
+        // return view('product.create',[
+        //     'cat' => $categories,
+        //     'd' => $data
+        // ]);
     }
 
     /**
