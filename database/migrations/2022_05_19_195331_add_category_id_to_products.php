@@ -15,8 +15,11 @@ class AddCategoryIdToProducts extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            // $table->unsignedBigInteger('category_id')->nullable();
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+
+            $table->foreignId('category_id')->after('cover')->nullable()->constrained();
+
         });
     }
 
