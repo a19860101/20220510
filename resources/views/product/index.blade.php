@@ -1,12 +1,13 @@
 @extends('template.master')
 @section('main')
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
 <div class="container">
     <div class="row">
         <div class="col-12">
             <table class="table">
                 <tr>
                     <th>商品名稱</th>
-                    <th>商品敘述</th>
+                    <th>封面圖片</th>
                     <th>價格</th>
                     <th>特價</th>
                     <th>上架</th>
@@ -15,7 +16,10 @@
                 @foreach ($products as $product)
                 <tr>
                     <td>{{$product->title}}</td>
-                    <td>{{$product->desc}}</td>
+                    <td>
+                        <img src="{{asset('storage/images/'.$product->cover)}}" alt="" width="100">
+                        <img src="/storage/images/{{$product->cover}}" alt="" width="100">
+                    </td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->sale}}</td>
                     <td>{{$product->started_at}}</td>
