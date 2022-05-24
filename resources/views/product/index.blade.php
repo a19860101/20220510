@@ -69,6 +69,12 @@
                     <td>{{$trash->started_at}}</td>
                     <td>{{$trash->ended_at}}</td>
                     <td>
+                        <a href="{{route('restore',['id'=>$trash->id])}}">還原資料</a>
+                        <form action="{{route('forceDelete')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$trash->id}}">
+                            <input type="submit" value="刪除">
+                        </form>
                     </td>
                 </tr>
                 @endforeach

@@ -30,3 +30,8 @@ Route::get('category',[CategoryController::class,'index'])->name('category.index
 Route::post('category',[CategoryController::class,'store'])->name('category.store');
 
 Route::patch('product/removeCover/{product}',[ProductController::class,'removeCover'])->name('removeCover');
+
+// 還原
+Route::get('product/restore/{id}',[ProductController::class,'restore'])->name('restore');
+// 硬刪除
+Route::post('product/forceDelete',[ProductController::class,'forceDelete'])->name('forceDelete');

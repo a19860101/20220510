@@ -154,8 +154,12 @@ class ProductController extends Controller
 
         return redirect()->back();
     }
-    public function trash(){
-        // $products = Product::onlyTrashed()->orderBy('id','DESC')->get();
-
+    public function restore($id){
+        Product::onlyTrashed()->find($id)->restore();
+        return redirect()->back();
+    }
+    public function forceDelete(Request $request){
+        Product::onlyTrashed()->find($request->id)->forceDelete();
+        return redirect()->back();
     }
 }
