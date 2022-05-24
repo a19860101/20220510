@@ -19,9 +19,10 @@ class ProductController extends Controller
     public function index()
     {
         //
+        // $prodcuts = DB::select('select * from products left join categories on product.category_id = categories.id');
         $products = Product::orderBy('id','DESC')->get();
         // $products = Product::withTrashed()->orderBy('id','DESC')->get();
-        $trashes = Product::onlyTrashed()->orderBy('id','DESC')->get();
+        // $trashes = Product::onlyTrashed()->orderBy('id','DESC')->get();
         // $products = Product::all();
 
         return view('product.index',compact('products','trashes'));
@@ -140,7 +141,7 @@ class ProductController extends Controller
     public function removeCover(Request $request,Product $product){
 
         // return '/storage/images/'.$product->cover;
-        Storage::disk('public')->delete('/storage/images/'.$product->cover);
+        Storage::disk()->delete('/storage/images/'.$product->cover);
 
         // $product->cover = null;
         // $product->save();
