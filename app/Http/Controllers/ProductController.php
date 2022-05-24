@@ -21,10 +21,10 @@ class ProductController extends Controller
         //
         $products = Product::orderBy('id','DESC')->get();
         // $products = Product::withTrashed()->orderBy('id','DESC')->get();
-        // $products = Product::onlyTrashed()->orderBy('id','DESC')->get();
+        $trashes = Product::onlyTrashed()->orderBy('id','DESC')->get();
         // $products = Product::all();
 
-        return view('product.index',compact('products'));
+        return view('product.index',compact('products','trashes'));
     }
 
     /**
@@ -139,8 +139,8 @@ class ProductController extends Controller
     }
     public function removeCover(Request $request,Product $product){
 
-        // return $product;
-        Storage::disk('public')->delete('storage/images/'.$product->cover);
+        // return '/storage/images/'.$product->cover;
+        Storage::disk('public')->delete('/storage/images/'.$product->cover);
 
         // $product->cover = null;
         // $product->save();
@@ -153,5 +153,9 @@ class ProductController extends Controller
         // DB::update('update products set cover = ? where id = ?',[null,$request->id]);
 
         return redirect()->back();
+    }
+    public function trash(){
+        // $products = Product::onlyTrashed()->orderBy('id','DESC')->get();
+
     }
 }
