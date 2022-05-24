@@ -19,6 +19,13 @@
                     <td>
                         <img src="{{asset('storage/images/'.$product->cover)}}" alt="" width="100">
                         <img src="/storage/images/{{$product->cover}}" alt="" width="100">
+                        <form action="{{route('removeCover',[$product->id])}}" method="post">
+                            @csrf
+                            @method('patch')
+                            {{-- <input type="hidden" name="cover" value="{{$product->cover}}"> --}}
+                            {{-- <input type="hidden" name="id" value="{{$product->id}}"> --}}
+                            <input type="submit" value="刪除">
+                        </form>
                     </td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->sale}}</td>

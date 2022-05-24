@@ -28,3 +28,5 @@ Route::get('test/{id}/{test}',[PostController::class,'test']);
 
 Route::get('category',[CategoryController::class,'index'])->name('category.index');
 Route::post('category',[CategoryController::class,'store'])->name('category.store');
+
+Route::patch('product/removeCover/{product}',[ProductController::class,'removeCover'])->name('removeCover');

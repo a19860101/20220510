@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Str;
+use DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -132,6 +134,24 @@ class ProductController extends Controller
         //
         $product->delete();
         // Product::destroy($product->id);
+
         return redirect()->route('product.index');
+    }
+    public function removeCover(Request $request,Product $product){
+
+        // return $product;
+        Storage::disk('public')->delete('storage/images/'.$product->cover);
+
+        // $product->cover = null;
+        // $product->save();
+
+        // return $product;
+        // DB::table('products')->where('id',$request->id)->update([
+        //     'cover' => null
+        // ]);
+
+        // DB::update('update products set cover = ? where id = ?',[null,$request->id]);
+
+        return redirect()->back();
     }
 }
