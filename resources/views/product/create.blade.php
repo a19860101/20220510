@@ -18,6 +18,10 @@
                     </select>
                 </div>
                 <div>
+                    <label for="" class="form-label">標籤</label>
+                    <input type="text" name="tag" class="form-control">
+                </div>
+                <div>
                     <label for="">商品封面</label>
                     <input type="file" name="cover" class="form-control">
                 </div>

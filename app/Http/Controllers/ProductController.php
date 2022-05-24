@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Str;
 use DB;
@@ -73,6 +74,13 @@ class ProductController extends Controller
         // $product->fill([
         //     'title' => $request->title,
         // ]);
+        $tags = explode(',',$request->tag);
+        // return $tags;
+        foreach($tags as $tag){
+            Tag::firstOrCreate(['title' => $tag]);
+            // Tag::Create(['title' => $tag]);
+        }
+
         $product->fill($request->all());
         $product->cover = $cover;
         $product->save();
