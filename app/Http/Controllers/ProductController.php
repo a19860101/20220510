@@ -74,16 +74,19 @@ class ProductController extends Controller
         // $product->fill([
         //     'title' => $request->title,
         // ]);
-        $tags = explode(',',$request->tag);
-        // return $tags;
-        foreach($tags as $tag){
-            Tag::firstOrCreate(['title' => $tag]);
-            // Tag::Create(['title' => $tag]);
-        }
+
 
         $product->fill($request->all());
         $product->cover = $cover;
         $product->save();
+
+        $tags = explode(',',$request->tag);
+        // return $tags;
+        foreach($tags as $tag){
+            $tagData = Tag::firstOrCreate(['title' => $tag]);
+            // Tag::Create(['title' => $tag]);
+            $product->tags()->attach($tagData -> id);
+        }
 
         return redirect()->route('product.index');
 

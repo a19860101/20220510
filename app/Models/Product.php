@@ -16,4 +16,7 @@ class Product extends Model
         return $this->belongsTo(Category::class);
         // return $this->belongsTo('App\Category'); //laravel 7
     }
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
 }
