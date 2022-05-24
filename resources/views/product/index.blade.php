@@ -8,6 +8,7 @@
             <table class="table">
                 <tr>
                     <th>商品名稱</th>
+                    <th>商品分類</th>
                     <th>封面圖片</th>
                     <th>價格</th>
                     <th>特價</th>
@@ -17,6 +18,7 @@
                 @foreach ($products as $product)
                 <tr>
                     <td>{{$product->title}}</td>
+                    <td>{{$product->category->title}}</td>
                     <td>
                         <img src="{{asset('storage/images/'.$product->cover)}}" alt="" width="100">
                         <img src="/storage/images/{{$product->cover}}" alt="" width="100">
