@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,8 @@ Route::post('product/forceDelete',[ProductController::class,'forceDelete'])->nam
 
 Route::get('product/category/{category_id}',[IndexController::class,'productWithCategory'])->name('productCategory');
 Route::get('product/tag/{tag_id}',[IndexController::class,'productWithTag'])->name('productTag');
+
+Route::get('search',function(){
+    return view('search');
+});
+Route::get('search/result',[SearchController::class,'searchResult'])->name('searchResult');

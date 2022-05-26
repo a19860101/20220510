@@ -6,8 +6,8 @@
             <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <label for="" class="form-label">商品名稱</label>
-                    <input type="text" class="form-control" name="title">
+                    <label for="title" class="form-label">商品名稱</label>
+                    <input type="text" class="form-control" name="title" id="title">
                 </div>
                 <div>
                     <label for="" class="form-label">商品分類</label>
