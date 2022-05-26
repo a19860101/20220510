@@ -56,6 +56,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        // https://laravel.com/docs/8.x/validation#available-validation-rules
+        $request->validate([
+            'title' => 'required',
+            'started_at' => 'required'
+        ]);
+
+
         // Product::create($request->all());
 
         // return $request->file('cover')->store('images');
