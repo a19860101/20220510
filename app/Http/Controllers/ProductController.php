@@ -136,7 +136,6 @@ class ProductController extends Controller
         $product->tags()->detach();
         foreach($tags as $tag){
             $tagData = Tag::firstOrCreate(['title' => $tag]);
-            // Tag::Create(['title' => $tag]);
             $product->tags()->attach($tagData -> id);
         }
 
