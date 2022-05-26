@@ -54,7 +54,9 @@
                 </tr>
                 @foreach ($trashes as $trash)
                 <tr>
-                    <td>{{$trash->title}}</td>
+                    <td>
+                        {{$trash->title}}
+                    </td>
                     <td>
                         <img src="{{asset('storage/images/'.$trash->cover)}}" alt="" width="100">
                         <img src="/storage/images/{{$trash->cover}}" alt="" width="100">
