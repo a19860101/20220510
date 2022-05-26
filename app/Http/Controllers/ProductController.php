@@ -132,6 +132,15 @@ class ProductController extends Controller
         $product->fill($request->all());
         $product->save();
 
+        $tags = explode(',',$request->tag);
+        $product->tags()->detach();
+        foreach($tags as $tag){
+            $tagData = Tag::firstOrCreate(['title' => $tag]);
+            // Tag::Create(['title' => $tag]);
+            $product->tags()->attach($tagData -> id);
+        }
+
+
         return redirect()->route('product.index');
     }
 
