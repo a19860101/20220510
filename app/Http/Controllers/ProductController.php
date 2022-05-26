@@ -174,4 +174,5 @@ class ProductController extends Controller
         Product::onlyTrashed()->find($request->id)->forceDelete();
         return redirect()->back();
     }
+
 }

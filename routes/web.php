@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class,'index']);
 Route::resource('post',PostController::class);
 Route::resource('product',ProductController::class);
 
@@ -35,3 +34,7 @@ Route::patch('product/removeCover/{product}',[ProductController::class,'removeCo
 Route::get('product/restore/{id}',[ProductController::class,'restore'])->name('restore');
 // 硬刪除
 Route::post('product/forceDelete',[ProductController::class,'forceDelete'])->name('forceDelete');
+
+
+Route::get('product/category/{category_id}',[IndexController::class,'productWithCategory'])->name('productCategory');
+Route::get('product/tag/{tag_id}',[IndexController::class,'productWithTag'])->name('productTag');
