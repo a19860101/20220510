@@ -11,6 +11,21 @@
                     <input type="text" class="form-control" name="title" value="{{$product->title}}">
                 </div>
                 <div>
+                    {{-- @foreach($product->tags as $tag)
+                        {{$tag->title}}
+                    @endforeach --}}
+                    <?php
+                        $tagData = [];
+                        foreach($product->tags as $tag){
+                            $tagData[] = $tag->title;
+                        }
+                        $tagData = implode(',',$tagData);
+                    ?>
+
+                    <label for="" class="form-label">商品標籤</label>
+                    <input type="text" class="form-control" name="tag" value="{{$tagData}}">
+                </div>
+                <div>
                     {{-- {{$category->id == $product->category_id ? 'selected': '';}} --}}
                     <label for="" class="form-label">商品分類</label>
                     <select name="category_id" id="" class="form-select">
