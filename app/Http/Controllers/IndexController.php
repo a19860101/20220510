@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     //
     public function index(){
-        $products = \App\Models\Product::paginate(12);
+        $products = \App\Models\Product::paginate(1);
         // $products = \App\Models\Product::simplePaginate(12);
         // $products = \App\Models\Product::cursorPaginate(12);
         return view('welcome',compact('products'));
