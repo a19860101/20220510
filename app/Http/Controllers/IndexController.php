@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Category;
+use Illuminate\Pagination\Paginator;
 
 class IndexController extends Controller
 {
     //
     public function index(){
+
+
         $products = \App\Models\Product::paginate(12);
         // $products = \App\Models\Product::simplePaginate(12);
         // $products = \App\Models\Product::cursorPaginate(12);
